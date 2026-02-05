@@ -2,17 +2,16 @@
 import { google } from "@ai-sdk/google";
 import { generateObject } from "ai";
 import { z } from "zod"; // Zod makes sure AI gives us JSON, not text
-import mongoose from "mongoose";
+
 import { Session } from "@/models/Session";
+import { connectDB } from "@/lib/db";
 
 export async function POST(req: Request) {
   try {
     const { vibe, budget, city } = await req.json();
 
     // 1. Connect to DB
-    if (mongoose.connection.readyState === 0) {
-      await mongoose.connect(process.env.MONGODB_URI!);
-    }
+    await connectDB();
 
     // 2. Ask Gemini for 3 distinct options
     const result = await generateObject({

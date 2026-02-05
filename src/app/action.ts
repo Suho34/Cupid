@@ -3,6 +3,7 @@
 import mongoose from "mongoose";
 import { Session } from "@/models/Session";
 import { revalidatePath } from "next/cache";
+import { connectDB } from "@/lib/db";
 
 export async function submitVote(
   sessionId: string,
@@ -11,10 +12,7 @@ export async function submitVote(
 ) {
   try {
     // 1. Ensure DB connection
-    if (mongoose.connection.readyState === 0) {
-      if (!process.env.MONGODB_URI) throw new Error("MONGODB_URI is missing");
-      await mongoose.connect(process.env.MONGODB_URI);
-    }
+    await connectDB();
 
     // 2. Find the session
     const session = await Session.findById(sessionId);

@@ -2,6 +2,7 @@ import mongoose from "mongoose";
 import { Session } from "@/models/Session";
 import SessionClient from "@/components/SessionClient";
 import { notFound } from "next/navigation";
+import { connectDB } from "@/lib/db";
 
 // Next.js 16: params is a Promise!
 export default async function SessionPage({
@@ -13,10 +14,7 @@ export default async function SessionPage({
   const { id } = await params;
 
   // 2. Connect to DB
-  if (mongoose.connection.readyState === 0) {
-    if (!process.env.MONGODB_URI) throw new Error("MONGODB_URI is missing");
-    await mongoose.connect(process.env.MONGODB_URI);
-  }
+  await connectDB();
 
   // 3. Fetch the Session
   const session = await Session.findById(id).lean();

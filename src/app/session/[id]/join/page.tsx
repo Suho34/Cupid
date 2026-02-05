@@ -2,6 +2,7 @@ import mongoose from "mongoose";
 import { Session } from "@/models/Session";
 import SessionClient, { SessionData } from "@/components/SessionClient";
 import { notFound } from "next/navigation";
+import { connectDB } from "@/lib/db";
 
 export default async function PartnerPage({
   params,
@@ -10,10 +11,7 @@ export default async function PartnerPage({
 }) {
   const { id } = await params;
 
-  if (mongoose.connection.readyState === 0) {
-    if (!process.env.MONGODB_URI) throw new Error("MONGODB_URI is missing");
-    await mongoose.connect(process.env.MONGODB_URI);
-  }
+  await connectDB();
 
   const session = await Session.findById(id).lean();
 
