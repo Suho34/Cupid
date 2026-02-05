@@ -1,36 +1,62 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 💘 Cupid - AI Date Planner
 
-## Getting Started
+> **Stop arguing. Start dating.**
+> Let AI plan 3 perfect date options. You vote. They vote. It's a match.
 
-First, run the development server:
+![Cupid App Preview](/cupid-preview.png)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Overview
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+**Cupid** is an intelligent date planning application designed to resolve the "Where should we go?" dilemma. Built with a premium, romantic aesthetic, it uses AI to generate tailored date ideas based on your location, budget, and vibe.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## ✨ Features
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+-   **AI-Powered Suggestions**: tailored date itineraries generated in seconds.
+-   **Collaborative Voting**: Share a link with your partner. You both vote on your favorites.
+-   **Smart Matching**: The app reveals the "Winning Date" only when you both agree.
+-   **Premium UI**: Glassmorphism, smooth animations (`framer-motion`), and a "Romantic Modern" theme.
 
-## Learn More
+## 🛠️ Tech Stack
 
-To learn more about Next.js, take a look at the following resources:
+-   **Framework**: Next.js 16 (App Router)
+-   **Styling**: Tailwind CSS v4 + Oklch Colors
+-   **Animations**: Framer Motion
+-   **Database**: MongoDB (Mongoose)
+-   **AI**: Google Generative AI (Gemini)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🚀 Getting Started
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1.  **Clone the repository**:
+    ```bash
+    git clone https://github.com/yourusername/cupid-app.git
+    cd cupid-app
+    ```
 
-## Deploy on Vercel
+2.  **Install dependencies**:
+    ```bash
+    npm install
+    ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+3.  **Set up Environment Variables**:
+    Create a `.env` file and add your MongoDB URI and Gemini API Key:
+    ```env
+    MONGODB_URI=your_mongodb_connection_string
+    GOOGLE_GENERATIVE_AI_API_KEY=your_gemini_api_key
+    ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+4.  **Run the development server**:
+    ```bash
+    npm run dev
+    ```
+
+5.  Open [http://localhost:3000](http://localhost:3000) with your browser.
+
+## 🎨 Design System
+
+The app uses a custom "Cupid" theme defined in `globals.css`:
+-   **Fonts**: `Outfit` (Sans) & `Calistoga` (Display)
+-   **Primary Color**: Vibrant Pink/Red (`oklch(0.55 0.22 340)`)
+-   **Background**: Custom Mesh Gradient
+
+---
+Built with ❤️ by Suho34
